@@ -1,6 +1,3 @@
-let p1=prompt("enter your choice").toLocaleLowerCase();
-
-console.log(`player : ${p1}`);
 
 
 const getComputerChoice =()=>{
@@ -46,4 +43,30 @@ const playRound=(playerSelection, computerSelection)=>{
 
 }
 
-console.log(playRound(p1,getComputerChoice()));
+
+
+const game=()=>{
+    let player=0,computer=0;
+    for(let i=1;i<=5;i++){
+        let p1=prompt("enter your choice").toLocaleLowerCase();
+
+        console.log(`player : ${p1}`);
+
+        const result =(playRound(p1,getComputerChoice()));
+        console.log(result);
+
+        if(result==="win"){
+            player++;
+        }
+        if(result==="loose"){
+            computer++;
+        }       
+
+
+
+    }
+    console.log(`Total point: player= ${player}, computer= ${computer}`);
+
+}
+
+game();
