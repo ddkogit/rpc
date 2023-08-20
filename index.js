@@ -1,5 +1,6 @@
 
 
+
 const getComputerChoice =()=>{
     const choices=["rock","paper","scissor"];
     const random=Math.floor((Math.random()*3));
@@ -12,7 +13,7 @@ const getComputerChoice =()=>{
 const playRound=(playerSelection, computerSelection)=>{
     if(playerSelection==="rock"){
         if(computerSelection==="rock"){
-            return "draw";
+                return "draw";
         }
         if(computerSelection==="paper"){
             return "loose";
@@ -25,7 +26,7 @@ const playRound=(playerSelection, computerSelection)=>{
             return "win";
         }
         if(computerSelection==="paper"){
-            return "draw";
+                return "draw";
         }
         if(computerSelection==="scissor")
         return "loose";
@@ -38,35 +39,84 @@ const playRound=(playerSelection, computerSelection)=>{
             return "win";
         }
         if(computerSelection==="scissor")
-        return "draw";
+            return "draw";
     }
 
 }
 
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissor = document.getElementById("scissor");
 
 
-const game=()=>{
-    let player=0,computer=0;
-    for(let i=1;i<=5;i++){
-        let p1=prompt("enter your choice").toLocaleLowerCase();
+const resultDisplay = document.getElementById("result");
 
-        console.log(`player : ${p1}`);
+rock.addEventListener("click",display);
+paper.addEventListener("click",display);
+scissor.addEventListener("click",display);
 
-        const result =(playRound(p1,getComputerChoice()));
-        console.log(result);
+function display(e){
+    const playerSelection= e.target.value;
+    
+    const result =(playRound(playerSelection,getComputerChoice()));
+    console.log(playerSelection);
+    console.log(result);
+    resultDisplay.textContent=result;
 
-        if(result==="win"){
-            player++;
-        }
-        if(result==="loose"){
-            computer++;
-        }       
-
-
-
-    }
-    console.log(`Total point: player= ${player}, computer= ${computer}`);
-
+        
+        
+        
 }
 
-game();
+
+
+
+
+
+
+
+
+
+
+
+ // single game
+
+// let p1=prompt("enter your choice").toLocaleLowerCase();
+
+//         console.log(`player : ${p1}`);
+
+//         const result =(playRound(p1,getComputerChoice()));
+//         console.log(result);
+
+
+
+
+
+
+// 5 game logic
+
+// const game=()=>{
+//     let player=0,computer=0;
+//     for(let i=1;i<=5;i++){
+//         let p1=prompt("enter your choice").toLocaleLowerCase();
+
+//         console.log(`player : ${p1}`);
+
+//         const result =(playRound(p1,getComputerChoice()));
+//         console.log(result);
+
+//         if(result==="win"){
+//             player++;
+//         }
+//         if(result==="loose"){
+//             computer++;
+//         }       
+
+
+
+//     }
+//     console.log(`Total point: player= ${player}, computer= ${computer}`);
+
+// }
+
+// game();
