@@ -55,68 +55,44 @@ rock.addEventListener("click",display);
 paper.addEventListener("click",display);
 scissor.addEventListener("click",display);
 
-function display(e){
-    const playerSelection= e.target.value;
+let player=0,computer=0;
+
     
-    const result =(playRound(playerSelection,getComputerChoice()));
-    console.log(playerSelection);
-    console.log(result);
-    resultDisplay.textContent=result;
+    function display(e){
+      
 
+            const playerSelection= e.target.value;
+            
+            
+            const result =(playRound(playerSelection,getComputerChoice()));
+            console.log(playerSelection);
+            console.log(result);
+            
+            if(result==="win"){
+                player++;
+            }
+            if(result==="loose"){
+                computer++;
+            }  
+            resultDisplay.textContent=[player,computer];
+            if(player==5){
+                resultDisplay.textContent="Player wins";
+                rock.removeEventListener("click",display);
+                paper.removeEventListener("click",display);
+                scissor.removeEventListener("click",display);
+            }
+            if(computer==5){
+                resultDisplay.textContent="Player wins";
+                rock.removeEventListener("click",display);
+                paper.removeEventListener("click",display);
+                scissor.removeEventListener("click",display);
+                
+            }
+            console.log(player,computer);
+        }
         
-        
-        
-}
+    
+   
 
 
 
-
-
-
-
-
-
-
-
-
- // single game
-
-// let p1=prompt("enter your choice").toLocaleLowerCase();
-
-//         console.log(`player : ${p1}`);
-
-//         const result =(playRound(p1,getComputerChoice()));
-//         console.log(result);
-
-
-
-
-
-
-// 5 game logic
-
-// const game=()=>{
-//     let player=0,computer=0;
-//     for(let i=1;i<=5;i++){
-//         let p1=prompt("enter your choice").toLocaleLowerCase();
-
-//         console.log(`player : ${p1}`);
-
-//         const result =(playRound(p1,getComputerChoice()));
-//         console.log(result);
-
-//         if(result==="win"){
-//             player++;
-//         }
-//         if(result==="loose"){
-//             computer++;
-//         }       
-
-
-
-//     }
-//     console.log(`Total point: player= ${player}, computer= ${computer}`);
-
-// }
-
-// game();
