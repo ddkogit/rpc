@@ -6,7 +6,7 @@ const getComputerChoice =()=>{
     const random=Math.floor((Math.random()*3));
 
 
-    console.log(`computer : ${choices[random]}`);
+    // console.log(`computer : ${choices[random]}`);
     return choices[random];
 }
 
@@ -61,12 +61,15 @@ let player=0,computer=0;
     function display(e){
       
 
-            const playerSelection= e.target.value;
+            // const playerSelection= e.target.value;
+            const playerSelection=e.target.getAttribute("alt");
+            // console.log(e);
+            console.log(playerSelection);
             
             
             const result =(playRound(playerSelection,getComputerChoice()));
-            console.log(playerSelection);
-            console.log(result);
+            // console.log(playerSelection);
+            // console.log(result);
             
             if(result==="win"){
                 player++;
@@ -88,7 +91,7 @@ let player=0,computer=0;
                 scissor.removeEventListener("click",display);
                 
             }
-            console.log(player,computer);
+            // console.log(player,computer);
         }
         
     
