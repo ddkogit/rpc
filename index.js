@@ -77,23 +77,41 @@ let player=0,computer=0;
             if(result==="loose"){
                 computer++;
             }  
-            resultDisplay.textContent=[player,computer];
+            // resultDisplay.textContent=[player,computer];
             if(player==5){
                 resultDisplay.textContent="Player wins";
-                rock.removeEventListener("click",display);
-                paper.removeEventListener("click",display);
-                scissor.removeEventListener("click",display);
-            }
-            if(computer==5){
-                resultDisplay.textContent="Player wins";
+                
                 rock.removeEventListener("click",display);
                 paper.removeEventListener("click",display);
                 scissor.removeEventListener("click",display);
                 
             }
+            if(computer==5){
+                resultDisplay.textContent="Computer wins";
+                rock.removeEventListener("click",display);
+                paper.removeEventListener("click",display);
+                scissor.removeEventListener("click",display);
+                
+            }
+            const playerScore=document.getElementById("playerScore");
+            const computerScore=document.getElementById("computerScore");
+    
+            playerScore.innerHTML=player;
+            computerScore.innerHTML=computer;
             // console.log(player,computer);
         }
+
+        const reset = document.getElementById("reset");
+
+        reset.addEventListener("click",reset=>{
+            location.reload();
+            player=0;
+            computer=0;
+           
+        })
         
+
+       
     
    
 
