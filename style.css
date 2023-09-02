@@ -1,0 +1,13 @@
+body{
+    background: url("./images/rpc-bg.jpg");
+    color: white;
+}
+
+.gameContainer{
+
+}
+
+img{
+    height: 100px;
+    width: 100px;
+}
